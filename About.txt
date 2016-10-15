@@ -1,0 +1,38 @@
+Introducing Janus, a Weather/Music Widget!
+
+***InfoStats2 and iWidget are recommended to properly use swipes and display information***
+
+Displays weather, date, music, time, and battery information!
+
+Weather Features:
+Swipe enabled!
+Swipe up to switch to music widget
+Swipe left to switch to hourly forecast
+Swipe right to switch to detailed weather
+Tap to change Flickr image and refresh weather
+Pulls weather background images from Flickr based on time of day and current weather
+5-day forecast
+5-hour forecast
+Detailed weather information including sunrise, sunset, wind speed & direction, dewpoint, humidity, air pressure, hi, lo, and feels like temperature
+Automagically updates based on your location
+
+Music Features:
+Swipe up to switch to weather widget
+Swipe left for previous track
+Swipe right for next track
+Tap to play/pause
+Displays current album artwork, artist, title, and album
+
+Charging bolt updates in real-time
+
+Options:
+Disable either widget
+Choose between Flickr, stock weather photos, or clear background
+24 and 12 hour modes
+Framing borders
+Set background opacity of weather or music
+Disable weather or music backgrounds
+Multi-language support
+
+Credits:
+Special thanks to JunesiPhone and Matchstic!

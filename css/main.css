@@ -1,0 +1,509 @@
+@font-face {
+  font-family:"Geo";
+  src: url(../fonts/geosans.ttf);
+}
+body {
+  margin:0;
+  padding:0
+}
+#mainElement {
+  width:375px;
+  height:200px;
+  font-weight: 900;
+  font-family: "Geo";
+  z-index: -10;
+}
+div#time{
+  position:absolute;
+  width:150px;
+  top:15px;
+  left:0px;
+  font-size:50px;
+  text-align:right;
+  color:#ffffff;
+  z-index: 10;
+  text-shadow: 0px 0px 30px #000000,
+               0px 0px 40px #000000;
+}
+div#date{
+  position:absolute;
+  width:100px;
+  top:23px;
+  left:160px;
+  font-size:20px;
+  text-align:left;
+  color:#ffffff;
+  z-index: 10;
+  text-shadow: 0px 0px 15px #000000,
+               0px 0px 20px #000000;
+}
+div#bolt{
+  position:absolute;
+  top:48px;
+  left:160px;
+  width:50px;
+  height:25px;
+  z-index: 10;
+  text-shadow: 0px 0px 30px #000000;
+}
+div#battery{
+  position:absolute;
+  top:48px;
+  left:175px;
+  font-size:15px;
+  text-align:left;
+  color:#ffffff;
+  z-index: 10;
+  text-shadow: 0px 0px 15px #000000,
+               0px 0px 20px #000000;
+}
+#musicElement{
+  position: absolute;
+  width:375px;
+  height:200px;
+  z-index:1;
+}
+div#musicbgWrapper{
+  width:375px;
+  height:200px;
+  z-index: 2;
+}
+div#musicbg{
+  background-position: center;
+  background-size: 375px;
+  width:375px;
+  height:200px;
+  z-index: 0;
+}
+div#artwork{
+  position:absolute;
+  top:90px;
+  left:20px;
+  width:100px;
+  height:100px;
+  z-index: 0;
+  text-shadow: 0px 0px 30px #000000,
+               0px 0px 40px #000000;
+}
+div#artist{
+    position:absolute;
+    padding: 10px;
+    top:80px;
+    left:125px;
+    width: 210px;
+    font-size:18px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    color:#ffffff;
+    z-index: 0;
+    text-shadow: 0px 0px 15px #000000,
+                 0px 0px 20px #000000;
+}
+div#title{
+    position:absolute;
+    padding: 10px;
+    top:113px;
+    left:125px;
+    width: 210px;
+    font-size:22px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    color:#ffffff;
+    z-index: 0;
+    text-shadow: 0px 0px 15px #000000,
+                 0px 0px 20px #000000;
+}
+
+div#album{
+    position:absolute;
+    padding: 10px;
+    top:150px;
+    left:125px;
+    width: 210px;
+    font-size:18px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    color:#ffffff;
+    z-index: 0;
+    text-shadow: 0px 0px 15px #000000,
+                 0px 0px 20px #000000;
+}
+#weatherElement{
+  position: absolute;
+  width:375px;
+  height:200px;
+  z-index:5;
+}
+div#weatherbg{
+  background-position: top;
+  background-size: 375px;
+  width:375px;
+  height:200px;
+  z-index: 5;
+}
+div#wxCurrentIcon{
+  position:absolute;
+  top:15px;
+  left:245px;
+  width:50px;
+  height:25px;
+  color:#ffffff;
+  z-index:5;
+  text-shadow: 0px 0px 30px #000000,
+               0px 0px 40px #000000;
+}
+div#wxCondition{
+  position:absolute;
+  top:75px;
+  left:145px;
+  width:200px;
+  font-family:"Geo";
+  font-size:20px;
+  text-align:right;
+  color:#ffffff;
+  z-index: 5;
+  text-shadow: 0px 0px 20px #000000,
+               0px 0px 30px #000000;
+}
+div#temp{
+  position:absolute;
+  top:25px;
+  left:305px;
+  font-family:"Geo";
+  font-size:35px;
+  text-align:left;
+  color:#ffffff;
+  z-index: 10;
+  text-shadow: 0px 0px 30px #000000,
+               0px 0px 40px #000000;
+}
+div#currentLocation{
+  position:absolute;
+  width:150px;
+  top:70px;
+  left:0px;
+  font-family:"Geo";
+  font-size:14px;
+  text-align:right;
+  color:#ffffff;
+  z-index: 10;
+  text-shadow: 0px 0px 10px #000000,
+               0px 0px 20px #000000;
+}
+div#wxUpdated{
+  position:absolute;
+  width:150px;
+  top:90px;
+  left:0px;
+  font-family:"Geo";
+  font-size:10px;
+  text-align:right;
+  color:#ffffff;
+  z-index: 10;
+  text-shadow: 0px 0px 10px #000000,
+               0px 0px 20px #000000;
+}
+#info{
+  position:absolute;
+  top:115px;
+  left:14px;
+  height:25px;
+  color:#ffffff;
+  z-index: 5;
+  text-shadow: 0px 0px 15px #000000,
+               0px 0px 20px #000000;
+}
+#sunrise{
+  position:absolute;
+  width:125px;
+  top:-5px;
+  left:5px;
+  font-family:"Geo";
+  font-size:16px;
+  text-align:left;
+  color:#ffffff;
+  z-index: 10;
+  text-shadow: 0px 0px 10px #000000,
+               0px 0px 20px #000000;
+}
+#sunset{
+  position:absolute;
+  width:125px;
+  top:25px;
+  left:5px;
+  font-family:"Geo";
+  font-size:16px;
+  text-align:left;
+  color:#ffffff;
+  z-index: 10;
+  text-shadow: 0px 0px 10px #000000,
+               0px 0px 20px #000000;
+}
+#windSpeed{
+  position:absolute;
+  width:125px;
+  top:55px;
+  left:5px;
+  font-family:"Geo";
+  font-size:16px;
+  text-align:left;
+  color:#ffffff;
+  z-index: 10;
+  text-shadow: 0px 0px 10px #000000,
+               0px 0px 20px #000000;
+}
+#dewpoint{
+  position:absolute;
+  width:125px;
+  top:-5px;
+  left:130px;
+  font-family:"Geo";
+  font-size:16px;
+  text-align:left;
+  color:#ffffff;
+  z-index: 10;
+  text-shadow: 0px 0px 10px #000000,
+               0px 0px 20px #000000;
+}
+#humidity{
+  position:absolute;
+  width:125px;
+  top:25px;
+  left:130px;
+  font-family:"Geo";
+  font-size:16px;
+  text-align:left;
+  color:#ffffff;
+  z-index: 10;
+  text-shadow: 0px 0px 10px #000000,
+               0px 0px 20px #000000;
+}
+#pressure{
+  position:absolute;
+  width:125px;
+  top:55px;
+  left:130px;
+  font-family:"Geo";
+  font-size:16px;
+  text-align:left;
+  color:#ffffff;
+  z-index: 10;
+  text-shadow: 0px 0px 10px #000000,
+               0px 0px 20px #000000;
+}
+#hi{
+  position:absolute;
+  width:125px;
+  top:-5px;
+  left:265px;
+  font-family:"Geo";
+  font-size:16px;
+  text-align:left;
+  color:#ffffff;
+  z-index: 10;
+  text-shadow: 0px 0px 10px #000000,
+               0px 0px 20px #000000;
+}
+#lo{
+  position:absolute;
+  width:125px;
+  top:25px;
+  left:265px;
+  font-family:"Geo";
+  font-size:16px;
+  text-align:left;
+  color:#ffffff;
+  z-index: 10;
+  text-shadow: 0px 0px 10px #000000,
+               0px 0px 20px #000000;
+}
+#feels{
+  position:absolute;
+  width:125px;
+  top:55px;
+  left:265px;
+  font-family:"Geo";
+  font-size:16px;
+  text-align:left;
+  color:#ffffff;
+  z-index: 10;
+  text-shadow: 0px 0px 10px #000000,
+               0px 0px 20px #000000;
+}
+#forecast{
+  position:absolute;
+  top:115px;
+  left:14px;
+  height:25px;
+  color:#ffffff;
+  z-index: 5;
+  text-shadow: 0px 0px 10px #000000,
+               0px 0px 20px #000000;
+}
+#daySection{
+  height:35px;
+  z-index: 5;
+}
+#daySection p {
+  margin:-2px;
+  font-size:16px
+}
+#daySection img {
+  width:35px;
+}
+#daySection div {
+  float:left;
+  width:68px;
+  text-shadow: 0px 0px 10px #000000,
+               0px 0px 20px #000000;
+}
+#hourly{
+  position:absolute;
+  top:115px;
+  left:14px;
+  height:25px;
+  color:#ffffff;
+  z-index: 5;
+  text-shadow: 0px 0px 10px #000000,
+               0px 0px 20px #000000;
+}
+#hourSection{
+  height:35px;
+  z-index: 5;
+}
+#hourSection p {
+  margin:-2px;
+  font-size:16px
+}
+#hourSection img {
+  width:35px;
+}
+#hourSection div {
+  float:left;
+  width:68px;
+  text-shadow: 0px 0px 10px #000000,
+               0px 0px 20px #000000;
+}
+@-webkit-keyframes fadeIn {
+  0% {opacity: 0; visibility: hidden;}
+  1% {opacity: 0; visibility: visible;}
+  100% {opacity: 1; visibility: visible;}
+}
+@-webkit-keyframes fadeOut {
+  0% {opacity: 1; visibility: visible;}
+  99% {opacity: 0; visibility: visible;}
+  100% {opacity: 0; visibility: hidden;}
+}
+@-webkit-keyframes fadeInBG {
+  0% {opacity: 0; visibility: hidden;}
+  1% {opacity: 0; visibility: visible;}
+  100% {opacity: 0.7; visibility: visible;}
+}
+@-webkit-keyframes fadeOutBG {
+  0% {opacity: 0.7; visibility: visible;}
+  99% {opacity: 0; visibility: visible;}
+  100% {opacity: 0; visibility: hidden;}
+}
+@-webkit-keyframes fadeIn100 {
+  0% {opacity: 0; visibility: hidden;}
+  1% {opacity: 0; visibility: visible;}
+  100% {opacity: 1; visibility: visible;}
+}
+@-webkit-keyframes fadeOut100 {
+  0% {opacity: 1; visibility: visible;}
+  99% {opacity: 0; visibility: visible;}
+  100% {opacity: 0; visibility: hidden;}
+}
+@-webkit-keyframes fadeIn90 {
+  0% {opacity: 0; visibility: hidden;}
+  1% {opacity: 0; visibility: visible;}
+  100% {opacity: 0.9; visibility: visible;}
+}
+@-webkit-keyframes fadeOut90 {
+  0% {opacity: 0.9; visibility: visible;}
+  99% {opacity: 0; visibility: visible;}
+  100% {opacity: 0; visibility: hidden;}
+}
+@-webkit-keyframes fadeIn80 {
+  0% {opacity: 0; visibility: hidden;}
+  1% {opacity: 0; visibility: visible;}
+  100% {opacity: 0.8; visibility: visible;}
+}
+@-webkit-keyframes fadeOut80 {
+  0% {opacity: 0.8; visibility: visible;}
+  99% {opacity: 0; visibility: visible;}
+  100% {opacity: 0; visibility: hidden;}
+}
+@-webkit-keyframes fadeIn70 {
+  0% {opacity: 0; visibility: hidden;}
+  1% {opacity: 0; visibility: visible;}
+  100% {opacity: 0.7; visibility: visible;}
+}
+@-webkit-keyframes fadeOut70 {
+  0% {opacity: 0.7; visibility: visible;}
+  99% {opacity: 0; visibility: visible;}
+  100% {opacity: 0; visibility: hidden;}
+}
+@-webkit-keyframes fadeIn60 {
+  0% {opacity: 0; visibility: hidden;}
+  1% {opacity: 0; visibility: visible;}
+  100% {opacity: 0.6; visibility: visible;}
+}
+@-webkit-keyframes fadeOut60 {
+  0% {opacity: 0.6; visibility: visible;}
+  99% {opacity: 0; visibility: visible;}
+  100% {opacity: 0; visibility: hidden;}
+}
+@-webkit-keyframes fadeIn50 {
+  0% {opacity: 0; visibility: hidden;}
+  1% {opacity: 0; visibility: visible;}
+  100% {opacity: 0.5; visibility: visible;}
+}
+@-webkit-keyframes fadeOut50 {
+  0% {opacity: 0.95; visibility: visible;}
+  99% {opacity: 0; visibility: visible;}
+  100% {opacity: 0; visibility: hidden;}
+}
+@-webkit-keyframes fadeIn40 {
+  0% {opacity: 0; visibility: hidden;}
+  1% {opacity: 0; visibility: visible;}
+  100% {opacity: 0.4; visibility: visible;}
+}
+@-webkit-keyframes fadeOut40 {
+  0% {opacity: 0.4; visibility: visible;}
+  99% {opacity: 0; visibility: visible;}
+  100% {opacity: 0; visibility: hidden;}
+}
+@-webkit-keyframes fadeIn30 {
+  0% {opacity: 0; visibility: hidden;}
+  1% {opacity: 0; visibility: visible;}
+  100% {opacity: 0.3; visibility: visible;}
+}
+@-webkit-keyframes fadeOut30 {
+  0% {opacity: 0.3; visibility: visible;}
+  99% {opacity: 0; visibility: visible;}
+  100% {opacity: 0; visibility: hidden;}
+}
+@-webkit-keyframes fadeIn20 {
+  0% {opacity: 0; visibility: hidden;}
+  1% {opacity: 0; visibility: visible;}
+  100% {opacity: 0.2; visibility: visible;}
+}
+@-webkit-keyframes fadeOut20 {
+  0% {opacity: 0.2; visibility: visible;}
+  99% {opacity: 0; visibility: visible;}
+  100% {opacity: 0; visibility: hidden;}
+}
+@-webkit-keyframes fadeIn10 {
+  0% {opacity: 0; visibility: hidden;}
+  1% {opacity: 0; visibility: visible;}
+  100% {opacity: 0.1; visibility: visible;}
+}
+@-webkit-keyframes fadeOut10 {
+  0% {opacity: 0.1; visibility: visible;}
+  99% {opacity: 0; visibility: visible;}
+  100% {opacity: 0; visibility: hidden;}
+}

@@ -1,0 +1,739 @@
+<!-- Janus by SPQRGuyMontag -->
+<!-- Credit to JunesiPhone and Matchstic -->
+<!DOCTYPE html>
+<html class="">
+  <head>
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+  </head>
+  <body>
+        <div id="mainElement">
+          <div id="time"></div>
+          <div id="date"></div>
+          <div id="musicElement">
+            <div id="musicbgWrapper"><div id="musicbg"></div></div>
+            <div id="artwork"><img id="art"></div>
+            <div id="artist"></div>
+            <div id="title"></div>
+            <div id="album"></div>
+          </div>
+          <div id="bolt"></div>
+          <div id="battery"></div>
+          <div id="weatherElement">
+            <div id="weatherbg"></div>
+            <div id="currentLocation"></div>
+            <div id="wxUpdated"></div>
+            <div id="wxCondition"></div>
+            <div id="forecast">
+              <section id="daySection">
+
+                <!-- display next five days -->
+                <div id="dayZero" style="margin-top:0;">
+                  <center>
+                  <p id="dayZeroDayString"></p>
+                  <img id="dayZeroImg"/>
+                  <p style="width: 50px; text-align:center;"><span id="dayZeroHigh"></span>&nbsp;<span id="dayZeroLow" style="color:#bfbfbf;"></span></p>
+                  </center>
+                </div>
+                <div id="dayOne" style="margin-top:0;">
+                  <center>
+                  <p id="dayOneDayString"></p>
+                  <img id="dayOneImg"/>
+                  <p style="width: 50px; text-align:center;"><span id="dayOneHigh"></span>&nbsp;<span id="dayOneLow" style="color:#bfbfbf;"></span></p>
+                  </center>
+                </div>
+
+          			<div id="dayTwo" style="margin-top:0;">
+          				<center>
+          				<p id="dayTwoDayString"></p>
+          				<img id="dayTwoImg"/>
+                  <p style="width: 50px; text-align:center;"><span id="dayTwoHigh"></span>&nbsp;<span id="dayTwoLow" style="color:#bfbfbf;"></span></p>
+          				</center>
+          			</div>
+
+          			<div id="dayThree" style="margin-top:0;">
+          				<center>
+          				<p id="dayThreeDayString"></p>
+          				<img id="dayThreeImg"/>
+                  <p style="width: 50px; text-align:center;"><span id="dayThreeHigh"></span>&nbsp;<span id="dayThreeLow" style="color:#bfbfbf;"></span></p>
+          				</center>
+          			</div>
+
+          			<div id="dayFour" style="margin-top:0;">
+          				<center>
+          				<p id="dayFourDayString"></p>
+          				<img id="dayFourImg"/>
+                  <p style="width: 50px; text-align:center;"><span id="dayFourHigh"></span>&nbsp;<span id="dayFourLow" style="color:#d9d9d9;"></span></p>
+          				</center>
+          			</div>
+              </section>
+            </div>
+            <div id="hourly">
+              <section id="hourSection">
+
+                <!-- display next five hours -->
+                <div id="hourZero" style="margin-top:0;">
+                  <center>
+                  <p id="hourZeroTime"></p>
+                  <img id="hourZeroIcon"/>
+                  <p style="width: 50px; text-align:center;"><span id="hourZeroTemperature" style="vertical-align:text-top"></span></p>
+                  </center>
+                </div>
+
+                <div id="hourOne" style="margin-top:0;">
+                  <center>
+                  <p id="hourOneTime"></p>
+                  <img id="hourOneIcon"/>
+                  <p style="width: 50px; text-align:center;"><span id="hourOneTemperature" style="vertical-align:text-top"></span></p>
+                  </center>
+                </div>
+
+                <div id="hourTwo" style="margin-top:0;">
+                  <center>
+                  <p id="hourTwoTime"></p>
+                  <img id="hourTwoIcon"/>
+                  <p style="width: 50px; text-align:center;"><span id="hourTwoTemperature" style="vertical-align:text-top"></span></p>
+                  </center>
+                </div>
+
+                <div id="hourThree" style="margin-top:0;">
+                  <center>
+                  <p id="hourThreeTime"></p>
+                  <img id="hourThreeIcon"/>
+                  <p style="width: 50px; text-align:center;"><span id="hourThreeTemperature" style="vertical-align:text-top"></span></p>
+                  </center>
+                </div>
+
+                <div id="hourFour" style="margin-top:0;">
+                  <center>
+                  <p id="hourFourTime"></p>
+                  <img id="hourFourIcon"/>
+                  <p style="width: 50px; text-align:center;"><span id="hourFourTemperature" style="vertical-align:text-top"></span></p>
+                  </center>
+                </div>
+              </section>
+            </div>
+            <div id="info">
+              <div id="sunrise"></div>
+              <div id="sunset"></div>
+              <div id="windSpeed"></div>
+              <div id="dewpoint"></div>
+              <div id="humidity"></div>
+              <div id="pressure"></div>
+              <div id="hi"></div>
+              <div id="lo"></div>
+              <div id="feels"></div>
+            </div>
+          </div>
+          <div id="wxCurrentIcon"><img id="wxIcon"></div>
+          <div id="temp"></div>
+        </div>
+
+    <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="js/time.js"></script>
+    <script type="text/javascript" src="js/lang.js"></script>
+    <script type="text/javascript" src="js/swipes.js"></script>
+    <script type="text/javascript" src="js/bolt.js"></script>
+
+    <script type="text/cycript">
+      //<![CDATA[
+      var widgetIdentifier = "com.gaitherstephens.janus";
+      var isCharging, batteryPercent;
+      var twentyfourhour = twentyfourhourOp;
+      var useMusic = useMusicOp;
+      var useMusicBg = useMusicBgOp;
+      var musicBgOpacity = musicBgOpacityOp;
+      var useWeather = useWeatherOp;
+      var useWxBg = useWxBgOp;
+      var wxBgOpacity = wxBgOpacityOp;
+      var wxRefresh = wxRefreshOp;
+      var bottomBorder = bottomBorderOp;
+      var topBorder = topBorderOp;
+      var sideBorder = sideBorderOp;
+      var weatherFirstTime = 0;
+
+      // Setup of widget
+      window.onload = function() {
+
+        //checks to see if weather widget is enabled
+        if(useWeather){
+
+          //placeholders
+          document.getElementById("wxCondition").innerHTML = "Loading...";
+          document.getElementById("title").innerHTML = "No Music";
+
+          //checks status of weather background and sets accordingly
+          if(useWxBg === "flickr" || useWxBg === "stock"){
+          document.getElementById("weatherbg").style.backgroundImage = "url(images/weatherbg.jpg)";
+          document.getElementById("weatherElement").style.backgroundColor = "black";
+          }
+          //brings the weather widget to the forefront
+          showWeather();
+
+          //brings forecast to forefront
+          showForecast();
+
+          //registers widget with IS2 for updates
+          [IS2Weather registerForWeatherUpdatesWithIdentifier:widgetIdentifier andCallback:^ void () {
+              updateWx();
+          }];
+
+          //starts weather update for first time
+          updateWx();
+          refreshWx();
+        }else{
+          //sets music widget properties
+          document.getElementById("title").innerHTML = "No Music";
+
+          //brings music widget to forefront
+          showMusic();
+        }
+
+        //initializes time and battery for first time
+        updateWidget();
+
+        //checks whether music widget is enabled
+        if(useMusic){
+
+          //checks if music background is enabled
+          if(useMusicBg){
+
+            //sets temporary music widget elements
+            document.getElementById("musicbg").style.backgroundImage = "url(images/album.jpg)";
+            document.getElementById("musicElement").style.backgroundColor = "black";
+          }
+
+          //registers widget for media updates
+          [IS2Media registerForNowPlayingNotificationsWithIdentifier:widgetIdentifier andCallback:^ void () {
+              updateMedia();
+    	    }];
+
+          //initializes music for first time
+          updateMedia();
+        }
+      };
+
+      // Make sure to de-register ourselves when removed from the user's screen.
+      window.onunload = function() {
+        [IS2Media unregisterForNotificationsWithIdentifier:widgetIdentifier];
+        [IS2Weather unregisterForUpdatesWithIdentifier:widgetIdentifier];
+        [IS2Weather removeRequesterForWeatherTimeInterval:widgetIdentifier];
+        return null;
+      };
+
+      //skips next track
+      function skipTrack() {
+        [IS2Media skipToNextTrack];
+      }
+
+      //skips to previous track
+      function previousTrack() {
+        [IS2Media skipToPreviousTrack];
+      }
+
+      //toggles play/pause
+      function togglePlayPause() {
+        [IS2Media togglePlayPause];
+      }
+
+      //calls IS2 weather update on a timer
+      function refreshWx(){
+        [IS2Weather updateWeather];
+        setTimeout(refreshWx, wxRefresh * 60 * 1000);
+      }
+
+      // updates stats using InfoStats2
+      function getBattery(){
+        isCharging = [IS2System batteryStateAsInteger];
+        batteryPercent = [IS2System batteryPercent];
+      }
+
+      /*
+
+        MEDIA SECTION
+
+      */
+
+      //updates the music and populates elements
+      function updateMedia() {
+
+      	//only populates music elements if music is playing
+      	if ([IS2Media isPlaying]) {
+      		showMusic();
+      		document.getElementById("artist").innerHTML = [IS2Media currentTrackArtist];
+      		document.getElementById("title").innerHTML = [IS2Media currentTrackTitle];
+      		document.getElementById("album").innerHTML = [IS2Media currentTrackAlbum];
+      		var elem = document.getElementById("art");
+      		elem.setAttribute("height", "100");
+      		elem.setAttribute("width", "100");
+      		elem.setAttribute("src", "" + [IS2Media currentTrackArtworkBase64] + "");
+      		document.getElementById("artwork").appendChild(elem);
+      		if(useMusicBg){
+      			document.getElementById("musicbg").style.backgroundImage = "url(" + [IS2Media currentTrackArtworkBase64] + ")";
+      			document.getElementById("musicbgWrapper").style.webkitAnimationName = "fadeIn" + musicBgOpacity;
+      			document.getElementById("musicbgWrapper").style.webkitAnimationDuration = ".1s";
+      			document.getElementById("musicbgWrapper").style.webkitAnimationFillMode = "forwards";
+      		}
+      	}
+      }
+
+      /*
+
+        WEATHER SECTION
+
+      */
+
+      function updateWx(){
+        //used to get random Flickr picture
+        var flickrCount = Math.floor((Math.random() * 50) + 1);
+        var flickrSort = "relevance";
+        var url;
+        var dayArray = JSON.parse("" + [IS2Weather dayForecastsForCurrentLocationJSON]);
+        var hourArray = JSON.parse("" + [IS2Weather hourlyForecastsForCurrentLocationJSON]);
+
+        //used to determine day or night
+        var dayNight = "Day";
+        if(hours > 0 && hours < 5){
+          dayNight = "Night"
+        }else if(hours > 5 && hours < 8){
+          dayNight = "Early Morning";
+        }else if(hours >= 8 && hours < 10){
+          dayNight = "Morning";
+        }else if(hours >= 10 && hours < 17){
+          dayNight = "";
+        }else if(hours >= 17 && hours < 20){
+          dayNight = "Evening";
+        }else if(hours >= 20 && hours <= 23){
+          dayNight = "Night";
+        }
+
+        //custom language for better Flickr results
+        function wxConScrub(c){
+          if(c.includes("Tornado")){c = "Tornado Weather"; flickrSort = "interestingness_desc";}
+          if(c.includes("Sleet")){c = "Sleet"; flickrSort = "relevance";}
+          if(c.includes("Rain") || c.includes("Showers")){c = "Rain"; flickrSort = "relevance";}
+          if(c.includes("Snow")){c = "Snow Falling"; flickrSort = "relevance";}
+          if(c.includes("Sunny")){c = "Sunny Sky"; flickrSort = "relevance";}
+          if(c.includes("Hail")){c = "Hailstorm"; flickrSort = "relevance";}
+          if(c.includes("Tropical") || c.includes("Hurricane")){c = "Tropical Storm Weather"; flickrSort = "relevance";}
+          if(c.includes("ThunderStorms") || c.includes("Thundershowers")){c = "Thunderstorm Weather Sky"; flickrSort = "interestingness_desc";}
+          if(c.includes("Dust")){c = "Dust Weather Sky"; flickrSort = "relevance";}
+          if(c.includes("Drizzle")){c = "Freezing Rain"; flickrSort = "interestingness_desc";}
+          if(c.includes("Cold")){c = "Freezing Weather"; flickrSort = "interestingness_desc";}
+          if(c.includes("Cloudy")){c = "Cloudy Weather Sky"; flickrSort = "relevance";}
+          if(c.includes("Foggy")){c = "Foggy Weather Sky"; flickrSort = "relevance";}
+          if(c.includes("Haze")){c = "Hazy Weather Sky"; flickrSort = "relevance";}
+          if(c.includes("Smoky")){c = "Hazy Weather Sky"; flickrSort = "relevance";}
+          if(c.includes("Blustery") || c.includes("Windy")){c = "Wind Field"; flickrSort = "interestingness_desc";}
+          if(c.includes("Fair") || c.includes("Clear")){c = "Cloudless Sky"; flickrSort = "relevance";}
+          if(c.includes("Hot")){c = "Palm Trees"; flickrSort = "relevance";}
+          return c;
+        }
+
+        //converts C to F for temperature
+        function celToFahr(c){
+          return ((c * (9 / 5)) + 32);
+        }
+
+        //converts millibars to inches for air pressure
+        function milliConversion(m){
+          return ((29.92 * m) / (1013.25))
+        }
+
+        //converts degrees to a cardinal point
+        var degToCard = function(deg){
+          if (deg>11.25 && deg<33.75){
+            return "NNE";
+          }else if (deg>33.75 && deg<56.25){
+            return "ENE";
+          }else if (deg>56.25 && deg<78.75){
+            return "E";
+          }else if (deg>78.75 && deg<101.25){
+            return "ESE";
+          }else if (deg>101.25 && deg<123.75){
+            return "ESE";
+          }else if (deg>123.75 && deg<146.25){
+            return "SE";
+          }else if (deg>146.25 && deg<168.75){
+            return "SSE";
+          }else if (deg>168.75 && deg<191.25){
+            return "S";
+          }else if (deg>191.25 && deg<213.75){
+            return "SSW";
+          }else if (deg>213.75 && deg<236.25){
+            return "SW";
+          }else if (deg>236.25 && deg<258.75){
+            return "WSW";
+          }else if (deg>258.75 && deg<281.25){
+            return "W";
+          }else if (deg>281.25 && deg<303.75){
+            return "WNW";
+          }else if (deg>303.75 && deg<326.25){
+            return "NW";
+          }else if (deg>326.25 && deg<348.75){
+            return "NNW";
+          }else{
+            return "N";
+          }
+        }
+
+        //populates forecast elements
+        document.getElementById('dayZeroDayString').innerHTML = translate[current].sday[dayArray[1].dayOfWeek - 1];
+        document.getElementById('dayZeroImg').src = "IconSets/YahooWithShadow/" + dayArray[1].condition + ".png";
+        document.getElementById('dayZeroHigh').innerHTML = "" + dayArray[1].high + "&deg";
+        document.getElementById('dayZeroLow').innerHTML = "" + dayArray[1].low + "&deg";
+
+        document.getElementById('dayOneDayString').innerHTML = translate[current].sday[dayArray[2].dayOfWeek - 1];
+        document.getElementById('dayOneImg').src = "IconSets/YahooWithShadow/" + dayArray[2].condition + ".png";
+        document.getElementById('dayOneHigh').innerHTML = "" + dayArray[2].high + "&deg";
+        document.getElementById('dayOneLow').innerHTML = "" + dayArray[2].low + "&deg";
+
+        document.getElementById('dayTwoDayString').innerHTML = translate[current].sday[dayArray[3].dayOfWeek - 1];
+        document.getElementById('dayTwoImg').src = "IconSets/YahooWithShadow/" + dayArray[3].condition + ".png";
+        document.getElementById('dayTwoHigh').innerHTML = "" + dayArray[3].high + "&deg";
+        document.getElementById('dayTwoLow').innerHTML = "" + dayArray[3].low + "&deg";
+
+        document.getElementById('dayThreeDayString').innerHTML = translate[current].sday[dayArray[4].dayOfWeek - 1];
+        document.getElementById('dayThreeImg').src = "IconSets/YahooWithShadow/" + dayArray[4].condition + ".png";
+        document.getElementById('dayThreeHigh').innerHTML = "" + dayArray[4].high + "&deg";
+        document.getElementById('dayThreeLow').innerHTML = "" + dayArray[4].low + "&deg";
+
+        document.getElementById('dayFourDayString').innerHTML = translate[current].sday[dayArray[5].dayOfWeek - 1];
+        document.getElementById('dayFourImg').src = "IconSets/YahooWithShadow/" + dayArray[5].condition + ".png";
+        document.getElementById('dayFourHigh').innerHTML = "" + dayArray[5].high + "&deg";
+        document.getElementById('dayFourLow').innerHTML = "" + dayArray[5].low + "&deg";
+
+        //populates the hourly elements
+        document.getElementById('hourZeroTime').innerHTML = easyTimes(hourArray[0].time);
+        document.getElementById('hourZeroIcon').src = "IconSets/YahooWithShadow/" + hourArray[0].condition + ".png";
+        document.getElementById('hourZeroTemperature').innerHTML = "" + hourArray[0].temperature + "&deg";
+
+        document.getElementById('hourOneTime').innerHTML = easyTimes(hourArray[1].time);
+        document.getElementById('hourOneIcon').src = "IconSets/YahooWithShadow/" + hourArray[1].condition + ".png";
+        document.getElementById('hourOneTemperature').innerHTML = "" + hourArray[1].temperature + "&deg";
+
+        document.getElementById('hourTwoTime').innerHTML = easyTimes(hourArray[2].time);
+        document.getElementById('hourTwoIcon').src = "IconSets/YahooWithShadow/" + hourArray[2].condition + ".png";
+        document.getElementById('hourTwoTemperature').innerHTML = "" + hourArray[2].temperature + "&deg";
+
+        document.getElementById('hourThreeTime').innerHTML = easyTimes(hourArray[3].time);
+        document.getElementById('hourThreeIcon').src = "IconSets/YahooWithShadow/" + hourArray[3].condition + ".png";
+        document.getElementById('hourThreeTemperature').innerHTML = "" + hourArray[3].temperature + "&deg";
+
+        document.getElementById('hourFourTime').innerHTML = easyTimes(hourArray[4].time);
+        document.getElementById('hourFourIcon').src = "IconSets/YahooWithShadow/" + hourArray[4].condition + ".png";
+        document.getElementById('hourFourTemperature').innerHTML = "" + hourArray[4].temperature + "&deg";
+
+        //populates the detailed weather info
+        document.getElementById("sunrise").innerHTML = "rise:" + " " + [IS2Weather sunriseTime];
+        document.getElementById("sunset").innerHTML = "set:" + " " + [IS2Weather sunsetTime];
+        document.getElementById("windSpeed").innerHTML = "wind:" + " " + degToCard([IS2Weather currentWindDirection]) + "@" + [IS2Weather currentWindSpeed];
+        document.getElementById("dewpoint").innerHTML = "dew:" + " " + celToFahr([IS2Weather currentDewPoint]).toFixed(2) + "&deg";
+        document.getElementById("humidity").innerHTML = "hum:" + " " + [IS2Weather currentHumidity] + "%";
+        document.getElementById("pressure").innerHTML = "press:" + " " + milliConversion([IS2Weather currentPressure]).toFixed(2) + " " + "in";
+        document.getElementById("hi").innerHTML = "hi:" + " " + [IS2Weather highForCurrentDay] + "&deg";
+        document.getElementById("lo").innerHTML = "lo:" + " " + [IS2Weather lowForCurrentDay] + "&deg";
+        document.getElementById("feels").innerHTML = "feels:" + " " + [IS2Weather currentlyFeelsLike] + "&deg";
+
+
+        //displays temp
+        document.getElementById("temp").innerHTML = [IS2Weather currentTemperature] + "&deg";
+
+        //displays current location
+        document.getElementById("currentLocation").innerHTML = [IS2Weather currentLocation];
+
+        //displays last update time
+        document.getElementById("wxUpdated").innerHTML = "updated:" + " " + [IS2Weather lastUpdateTime];
+
+        //displays weather icon
+        document.getElementById("wxCondition").innerHTML = [IS2Weather currentConditionAsString];
+        var elem = document.getElementById("wxIcon");
+        elem.setAttribute("height", "55");
+        elem.setAttribute("width", "55");
+        elem.setAttribute("src", "IconSets/YahooWithShadow/" + [IS2Weather currentCondition] + ".png");
+        document.getElementById("wxCurrentIcon").appendChild(elem);
+
+        //shows either flickr images or stock images
+        if(useWxBg === "flickr" || useWxBg === "stock"){
+          if(useWxBg === "flickr"){
+            //gets flickr images
+            $(function (){
+              $.ajax({
+                url: "https://api.flickr.com/services/rest/",
+                data: {
+                  method: "flickr.photos.search",
+                  api_key: "c1955bceeed9a3a76af982daf012c546",
+                  text: "" + wxConScrub([IS2Weather currentConditionAsString]) + " " + dayNight,
+                  sort: flickrSort,
+                  content_type: 1,
+                  safe_search: 2,
+                  media: "photos",
+                  format: "json",
+                  per_page: 50,
+                  nojsoncallback: 1
+                },
+                success: function (response) {
+                  $.each(response.photos.photo, function (index, value) {
+                    url = 'https://farm' + value.farm + '.staticflickr.com/' + value.server + '/' + value.id + '_' + value.secret + '.jpg';
+
+                    if(flickrCount === index || index === response.photos.photo.length){
+                      //fades out old weather picture
+                      document.getElementById("weatherbg").style.webkitAnimationName = "fadeOut" + wxBgOpacity;
+                      document.getElementById("weatherbg").style.webkitAnimationDuration = "3s";
+                      document.getElementById("weatherbg").style.webkitAnimationFillMode = "forwards";
+
+                      //waits for old picture to fade out and sets new picture to fade in
+                      window.setTimeout(function(){
+                        document.getElementById("weatherbg").style.backgroundImage = "url(" + url + ")";
+                        document.getElementById("weatherbg").style.webkitAnimationName = "fadeIn" + wxBgOpacity;
+                        document.getElementById("weatherbg").style.webkitAnimationDuration = "2s";
+                        document.getElementById("weatherbg").style.webkitAnimationFillMode = "forwards";
+                      }, 2000);
+                    return false;
+                    }
+                  });
+                }
+              });
+            })
+          }else{
+            //fades out old weather picture
+            document.getElementById("weatherbg").style.webkitAnimationName = "fadeOut" + wxBgOpacity;
+            document.getElementById("weatherbg").style.webkitAnimationDuration = "3s";
+            document.getElementById("weatherbg").style.webkitAnimationFillMode = "forwards";
+
+            //waits for old picture to fade out and sets new picture to fade in
+            window.setTimeout(function(){
+              document.getElementById("weatherbg").style.backgroundImage = "url(" + "images/wx/weather" + [IS2Weather currentCondition] + ".jpg" + ")";
+              document.getElementById("weatherbg").style.webkitAnimationName = "fadeIn" + wxBgOpacity;
+              document.getElementById("weatherbg").style.webkitAnimationDuration = "2s";
+              document.getElementById("weatherbg").style.webkitAnimationFillMode = "forwards";
+            }, 2000);
+          }
+        }
+      }
+
+      //]]>
+    </script>
+
+    <script type="text/javascript">
+      //<![CDATA[
+
+      //sets weather portion of the widget as true on startup
+      var isWx;
+
+      //used to monitor forecast/hourly/info view
+      var isForecast = false;
+      var isHourly = false;
+      var isInfo = false;
+
+      //adds or hides borders
+      if(bottomBorder && ! topBorder & !sideBorder){
+        document.getElementById("mainElement").style.borderStyle = "hidden hidden solid hidden";
+      }else if(bottomBorder && topBorder && !sideBorder){
+        document.getElementById("mainElement").style.borderStyle = "solid hidden solid hidden";
+      }else if(!bottomBorder && topBorder && !sideBorder){
+        document.getElementById("mainElement").style.borderStyle = "solid hidden hidden hidden";
+      }else if(!bottomBorder && topBorder && sideBorder){
+        document.getElementById("mainElement").style.borderStyle = "solid solid hidden solid";
+      }else if(bottomBorder && !topBorder && sideBorder){
+        document.getElementById("mainElement").style.borderStyle = "hidden solid solid solid";
+      }else if(bottomBorder && topBorder && sideBorder){
+        document.getElementById("mainElement").style.borderStyle = "solid solid solid solid";
+      }else if(!bottomBorder && !topBorder && sideBorder){
+        document.getElementById("mainElement").style.borderStyle = "hidden solid hidden solid";
+      }else{
+        document.getElementById("mainElement").style.borderStyle = "hidden hidden hidden hidden";
+      }
+
+      //no iphone touch events while on widget
+      var disableMove = true;
+      if (disableMove) {
+        document.getElementById('mainElement').addEventListener('touchmove', function (e) {
+          if (e.target.id === 'mainElement') {
+              e.preventDefault();
+          }
+        });
+      }
+
+      //used to switch the widget between weather and music
+      function switchWidget(){
+        if(isWx){
+          if(useMusic){
+            showMusic();
+          }
+        }else{
+          if(useWeather){
+            showWeather();
+          }
+        }
+      }
+
+      //shows the music side of widget
+      function showMusic(){
+        if(isWx){
+
+          //sets the weather as false
+          isWx = false;
+
+          //fades out weather
+          document.getElementById("weatherElement").style.webkitAnimationName = "fadeOut";
+          document.getElementById("weatherElement").style.webkitAnimationDuration = "0.5s";
+          document.getElementById("weatherElement").style.webkitAnimationFillMode = "forwards";
+
+          //fades in music
+          document.getElementById("musicElement").style.webkitAnimationName = "fadeIn";
+          document.getElementById("musicElement").style.webkitAnimationDuration = "0.5s";
+          document.getElementById("musicElement").style.webkitAnimationFillMode = "forwards";
+        }
+      }
+
+      //shows the weather side of widget
+      function showWeather(){
+        if(!isWx){
+
+          //sets the weather as true
+          isWx = true;
+
+          //fades out music
+          document.getElementById("musicElement").style.webkitAnimationName = "fadeOut";
+          document.getElementById("musicElement").style.webkitAnimationDuration = "0.5s";
+          document.getElementById("musicElement").style.webkitAnimationFillMode = "forwards";
+
+          //fades in weather
+          document.getElementById("weatherElement").style.webkitAnimationName = "fadeIn";
+          document.getElementById("weatherElement").style.webkitAnimationDuration = "0.5s";
+          document.getElementById("weatherElement").style.webkitAnimationFillMode = "forwards";
+        }
+      }
+
+      //shows weather info
+      function showInfo(){
+
+          isInfo = true;
+          isForecast = false;
+          isHourly = false;
+
+          //fades out hourly
+          document.getElementById("hourly").style.webkitAnimationName = "fadeOut";
+          document.getElementById("hourly").style.webkitAnimationDuration = "0.5s";
+          document.getElementById("hourly").style.webkitAnimationFillMode = "forwards";
+
+          //fades out forecast
+          document.getElementById("forecast").style.webkitAnimationName = "fadeOut";
+          document.getElementById("forecast").style.webkitAnimationDuration = "0.5s";
+          document.getElementById("forecast").style.webkitAnimationFillMode = "forwards";
+
+          //fades in info
+          document.getElementById("info").style.webkitAnimationName = "fadeIn";
+          document.getElementById("info").style.webkitAnimationDuration = "0.5s";
+          document.getElementById("info").style.webkitAnimationFillMode = "forwards";
+      }
+
+      //shows hourly weather
+      function showHourly(){
+
+          isHourly = true;
+          isInfo = false;
+          isForecast = false;
+
+          //fades out info
+          document.getElementById("info").style.webkitAnimationName = "fadeOut";
+          document.getElementById("info").style.webkitAnimationDuration = "0.5s";
+          document.getElementById("info").style.webkitAnimationFillMode = "forwards";
+
+          //fades out forecast
+          document.getElementById("forecast").style.webkitAnimationName = "fadeOut";
+          document.getElementById("forecast").style.webkitAnimationDuration = "0.5s";
+          document.getElementById("forecast").style.webkitAnimationFillMode = "forwards";
+
+          //fades in hourly
+          document.getElementById("hourly").style.webkitAnimationName = "fadeIn";
+          document.getElementById("hourly").style.webkitAnimationDuration = "0.5s";
+          document.getElementById("hourly").style.webkitAnimationFillMode = "forwards";
+      }
+
+      //shows forecast weather
+      function showForecast(){
+
+          isForecast = true;
+          isHourly = false;
+          isInfo = false;
+
+          //fades out info
+          document.getElementById("info").style.webkitAnimationName = "fadeOut";
+          document.getElementById("info").style.webkitAnimationDuration = "0.5s";
+          document.getElementById("info").style.webkitAnimationFillMode = "forwards";
+
+          //fades out hourly
+          document.getElementById("hourly").style.webkitAnimationName = "fadeOut";
+          document.getElementById("hourly").style.webkitAnimationDuration = "0.5s";
+          document.getElementById("hourly").style.webkitAnimationFillMode = "forwards";
+
+          //fades in forecast
+          document.getElementById("forecast").style.webkitAnimationName = "fadeIn";
+          document.getElementById("forecast").style.webkitAnimationDuration = "0.5s";
+          document.getElementById("forecast").style.webkitAnimationFillMode = "forwards";
+      }
+
+      document.getElementById("mainElement").addEventListener("click", tapWidget);
+
+      //tapping on widget either updates weather or toggles play/pause for music
+      function tapWidget(){
+        if(isWx){
+          refreshWx();
+        }else{
+          togglePlayPause();
+        }
+      }
+
+      //function that captures the event
+      var swipes = {
+          itemSwipe: function(direction){
+              if(direction === 'l'){
+                if(isWx){
+                  if(isForecast){
+                    showInfo();
+                  }else if(isInfo){
+                    showHourly();
+                  }else if(isHourly){
+                    showForecast();
+                  }
+                }else{
+                  skipTrack();
+                }
+              }
+              if(direction === 'r'){
+                if(isWx){
+                  if(isForecast){
+                    showHourly();
+                  }else if(isHourly){
+                    showInfo();
+                  }else if(isInfo){
+                    showForecast();
+                  }
+                }else{
+                  previousTrack();
+                }
+              }
+              if(direction === 'u'){
+
+                //switches between music and weather widget mode
+                switchWidget();
+              }
+          }
+      };
+
+      //adds swipe detection to element
+      detectswipe('#mainElement', swipes.itemSwipe);
+
+      //updates the widget
+      function updateWidget(){
+        getBattery();
+        updateBolt();
+        updateTime();
+        setTimeout(updateWidget, 1000);
+      }
+
+      //]]>
+    </script>
+  </body>
+</html>
