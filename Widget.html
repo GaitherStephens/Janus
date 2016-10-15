@@ -164,7 +164,7 @@
           //checks status of weather background and sets accordingly
           if(useWxBg === "flickr" || useWxBg === "stock"){
           document.getElementById("weatherbg").style.backgroundImage = "url(images/weatherbg.jpg)";
-          document.getElementById("weatherElement").style.backgroundColor = "black";
+          document.getElementById("weatherElement").style.backgroundColor = "rgba(0, 0, 0, "+musicBgOpacity/100+")";
           }
           //brings the weather widget to the forefront
           showWeather();
@@ -199,7 +199,8 @@
 
             //sets temporary music widget elements
             document.getElementById("musicbg").style.backgroundImage = "url(images/album.jpg)";
-            document.getElementById("musicElement").style.backgroundColor = "black";
+            document.getElementById("musicElement").style.backgroundColor = "rgba(0, 0, 0, "+musicBgOpacity/100+")";
+
           }
 
           //registers widget for media updates
