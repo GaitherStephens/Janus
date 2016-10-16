@@ -146,8 +146,8 @@
 			<string>30</string>
 			<key>60</key>
 			<string>60</string>
-			<key>90</key>
-			<string>90</string>
+			<key>120</key>
+			<string>120</string>
 		</dict>
 		<key>type</key>
 		<string>select</string>

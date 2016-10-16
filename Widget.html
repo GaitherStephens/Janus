@@ -11,7 +11,7 @@
           <div id="date"></div>
           <div id="musicElement">
             <div id="musicbgWrapper"><div id="musicbg"></div></div>
-            <div id="artwork"><img id="art"></div>
+            <div id="artwork"><img id="art"></img></div>
             <div id="artist"></div>
             <div id="title"></div>
             <div id="album"></div>
@@ -149,7 +149,6 @@
       var bottomBorder = bottomBorderOp;
       var topBorder = topBorderOp;
       var sideBorder = sideBorderOp;
-      var weatherFirstTime = 0;
 
       // Setup of widget
       window.onload = function() {
@@ -176,10 +175,8 @@
           [IS2Weather registerForWeatherUpdatesWithIdentifier:widgetIdentifier andCallback:^ void () {
               updateWx();
           }];
+          [IS2Weather setWeatherUpdateTimeInterval:wxRefresh forRequester:widgetIdentifier];
 
-          //starts weather update for first time
-          updateWx();
-          refreshWx();
         }else{
           //sets music widget properties
           document.getElementById("title").innerHTML = "No Music";
@@ -200,16 +197,12 @@
             //sets temporary music widget elements
             document.getElementById("musicbg").style.backgroundImage = "url(images/album.jpg)";
             document.getElementById("musicElement").style.backgroundColor = "rgba(0, 0, 0, "+musicBgOpacity/100+")";
-
           }
 
           //registers widget for media updates
           [IS2Media registerForNowPlayingNotificationsWithIdentifier:widgetIdentifier andCallback:^ void () {
               updateMedia();
     	    }];
-
-          //initializes music for first time
-          updateMedia();
         }
       };
 
@@ -234,12 +227,6 @@
       //toggles play/pause
       function togglePlayPause() {
         [IS2Media togglePlayPause];
-      }
-
-      //calls IS2 weather update on a timer
-      function refreshWx(){
-        [IS2Weather updateWeather];
-        setTimeout(refreshWx, wxRefresh * 60 * 1000);
       }
 
       // updates stats using InfoStats2
