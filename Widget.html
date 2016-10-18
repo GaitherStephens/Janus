@@ -214,6 +214,11 @@
         return null;
       };
 
+      //calls IS2 weather update on a timer
+      function refreshWx(){
+        [IS2Weather updateWeather];
+      }
+
       //skips next track
       function skipTrack() {
         [IS2Media skipToNextTrack];
